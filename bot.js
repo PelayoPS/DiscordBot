@@ -68,14 +68,7 @@ bot.on("message", message => {
    * Comando borrar que sirve para elminar una cantidad de mensajes
    */
   if (command === "borrar") {
-    "FALTA IMPLEMENTAR"
-  }
-
-  /**
-   * Comando decir que sirve para enviar un mensaje a un canal específico
-   */
-  if (command === "decir") {
-    "FALTA IMPLEMENTAR"
+    
   }
 });
 

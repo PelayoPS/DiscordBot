@@ -62,11 +62,7 @@ bot.on("message", message => {
     message.channel.send("Pasó algo con el comando, " + `<@!${message.author.id}>` + " se encargará de ver si lo puede arreglar.");
     console.log(e.stack); //Guarda la excepción
   }
-
-
-  /**
-   * Comando borrar que sirve para elminar una cantidad de mensajes
-   */
+  
   if (command === "borrar") {
     
   }

@@ -8,7 +8,6 @@ const bot = new Discord.Client();// Sirve para acceder al bote de discord
 const {
   prefix,
   token,
-  ownerID
 } = require('./config.json')
 
 /**
@@ -48,7 +47,7 @@ bot.on("message", message => {
   /**
    * Sirve para llamar a cada comando usando el nombre del archivo y pasando como parámetros los argumentos, el mensaje y el cliente
    */
-  const embed = new Discord.MessageEmbed(); //Mensaje personalizable
+  
   try {
     let comandos = require(`./commands/${command}.js`); //Buesca el comando en la carpeta
 

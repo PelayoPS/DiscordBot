@@ -28,13 +28,13 @@ bot.on("ready", () => {
  * Sirve para avisar cuando se una un miembro nuevo
  */
 bot.on("guildMemberAdd", member => {
-  if (member.guild.id !== serverID) {
+  if (member.guild.id === serverID) {
     let embed = new Discord.MessageEmbed()//Crea un nuevo mensaje mucho más personalizable que los mensajes base
       .setTitle("Bienvenido:")//Asigna un título
-      .setDescription("Encantado de tenerte por este server 💕💕")//`<@!${message.author.id}>` sirve para hacer un @ a la persona que pone el mensaje
+      .setDescription("Encantado de tenerte por este server " + `<@!${member.id}>` + " 💕💕")//`<@!${message.author.id}>` sirve para hacer un @ a la persona que pone el mensaje
+      //.setImage(member.avatarURL({ format: 'png', dynamic: true, size: 1024 }))//!No sé porque no funciona esto de la imagen pero bueno actualizar es necesario
       .setColor('RANDOM');//Cambia el color de la barrera que sale al lado del mensaje
-    client.guilds.cache.get(serverID).channels.cache.get(bienvenidasID).send(embed);//!Funciona para mandar el mensaje donde debería, pero no se llega a ejecutar el comando :(
-    console.log("nuevo miembro");
+    bot.guilds.cache.get(serverID).channels.cache.get(bienvenidasID).send(embed);
   }
 });
 

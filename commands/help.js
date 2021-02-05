@@ -3,6 +3,8 @@ exports.run = async (client, message, args) => {
     /**
      * Hace un embed message que luego comenta para lo cual utiliza una promesa, con mensaje normal no dejaba porque reaccionaba al mío
      * se pueden poner imágenes y personalizar mucho más, pero eso lo tengo que mirar para el comando de youtube y el resto de redes
+     * !Cuando se quiera añadir un comando la descripción se deberá incluir aquí!
+     * *Mejorar la presentación final de comando help*
      */
     let descrption = "!avatar @user: muestra la foto de perfil de un usuario.\n" +
                      "!borrar númeroDeMensajes: se utiliza para eliminar mensajes.\n" +

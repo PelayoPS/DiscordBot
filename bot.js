@@ -8,6 +8,8 @@ const bot = new Discord.Client();// Sirve para acceder al bote de discord
 const {
   prefix,
   token,
+  serverID,
+  bienvenidasID
 } = require('./config.json');
 
 /**
@@ -15,6 +17,25 @@ const {
  */
 bot.on("ready", () => {
   console.log("I am ready!");// console.log manda a la terminal el mensaje pasado como parámetro
+  bot.user.setActivity("Twitch", { type: "STREAMING", url: "https://www.twitch.tv/pelayo_p_s" });
+  let embed = new Discord.MessageEmbed()//Crea un nuevo mensaje mucho más personalizable que los mensajes base
+  .setTitle("Bienvenido:")//Asigna un título
+  .setDescription("Encantado de tenerte por este server 💕💕")//`<@!${message.author.id}>` sirve para hacer un @ a la persona que pone el mensaje
+  .setColor('RANDOM');//Cambia el color de la barrera que sale al lado del mensaje
+});
+
+/**
+ * Sirve para avisar cuando se una un miembro nuevo
+ */
+bot.on("guildMemberAdd", member => {
+  if (member.guild.id !== serverID) {
+    let embed = new Discord.MessageEmbed()//Crea un nuevo mensaje mucho más personalizable que los mensajes base
+      .setTitle("Bienvenido:")//Asigna un título
+      .setDescription("Encantado de tenerte por este server 💕💕")//`<@!${message.author.id}>` sirve para hacer un @ a la persona que pone el mensaje
+      .setColor('RANDOM');//Cambia el color de la barrera que sale al lado del mensaje
+    client.guilds.cache.get(serverID).channels.cache.get(bienvenidasID).send(embed);//!Funciona para mandar el mensaje donde debería, pero no se llega a ejecutar el comando :(
+    console.log("nuevo miembro");
+  }
 });
 
 bot.on("message", message => {
@@ -61,9 +82,6 @@ bot.on("message", message => {
     console.log(e.stack); //Guarda la excepción
   }
 
-  if (command === "borrar") {
-
-  }
 });
 
 

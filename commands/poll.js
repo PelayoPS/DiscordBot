@@ -14,6 +14,7 @@ exports.run = async (client, message, args) => {
     pollChannel.send({ embed: embedPoll }).then(embedMessage => {//Promesa que espera a que se mande el mensaje para reaccionar
         /**
          * Reacciona al mensaje con el parámetro como emoji
+         * !Recordar que para hacer esto es necesario hacer la promesa o si no reacciona al mensaje anterior
          */
         embedMessage.react('✅');
         embedMessage.react('❌');

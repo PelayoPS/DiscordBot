@@ -8,14 +8,13 @@ const bot = new Discord.Client();// Sirve para acceder al bote de discord
 const {
   prefix,
   token,
-} = require('./config.json')
+} = require('./config.json');
 
 /**
  * Avisa de cuando está encendido el bot a través de consola
  */
 bot.on("ready", () => {
   console.log("I am ready!");// console.log manda a la terminal el mensaje pasado como parámetro
-
 });
 
 bot.on("message", message => {

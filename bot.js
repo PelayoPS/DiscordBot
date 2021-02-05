@@ -46,7 +46,7 @@ bot.on("message", message => {
   /**
    * Sirve para llamar a cada comando usando el nombre del archivo y pasando como parámetros los argumentos, el mensaje y el cliente
    */
-  
+
   try {
     let comandos = require(`./commands/${command}.js`); //Buesca el comando en la carpeta
 
@@ -60,9 +60,9 @@ bot.on("message", message => {
     message.channel.send("Pasó algo con el comando, " + `<@!${message.author.id}>` + " se encargará de ver si lo puede arreglar.");
     console.log(e.stack); //Guarda la excepción
   }
-  
+
   if (command === "borrar") {
-    
+
   }
 });
 

@@ -12,7 +12,7 @@ const {
     uplayUser,
     spotifyLink,
     riotUser
-} = require('./socialConfig.json');
+} = require('./commandConfig.json');
 
 exports.run = async (client, message, args) => {
     /**

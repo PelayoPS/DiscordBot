@@ -18,10 +18,6 @@ const {
 bot.on("ready", () => {
   console.log("I am ready!");// console.log manda a la terminal el mensaje pasado como parámetro
   bot.user.setActivity("Twitch", { type: "STREAMING", url: "https://www.twitch.tv/pelayo_p_s" });
-  let embed = new Discord.MessageEmbed()//Crea un nuevo mensaje mucho más personalizable que los mensajes base
-  .setTitle("Bienvenido:")//Asigna un título
-  .setDescription("Encantado de tenerte por este server 💕💕")//`<@!${message.author.id}>` sirve para hacer un @ a la persona que pone el mensaje
-  .setColor('RANDOM');//Cambia el color de la barrera que sale al lado del mensaje
 });
 
 /**

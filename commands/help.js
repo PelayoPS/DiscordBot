@@ -57,6 +57,4 @@ exports.run = async (client, message, args) => {
         .setDescription(descrption)//muestra los comandos disponibles
         .setColor('RANDOM');//Cambia el color de la barrera que sale al lado del mensaje
     message.channel.send(embedMessage);
-
-
 }

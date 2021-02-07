@@ -28,8 +28,8 @@ bot.on("guildMemberAdd", member => {
     let embed = new Discord.MessageEmbed()//Crea un nuevo mensaje mucho más personalizable que los mensajes base
       .setTitle("Bienvenido:")//Asigna un título
       .setDescription("Encantado de tenerte por este server " + `<@!${member.id}>` + " 💕💕")//`<@!${message.author.id}>` sirve para hacer un @ a la persona que pone el mensaje
-      //.setImage(member.avatarURL({ format: 'png', dynamic: true, size: 1024 }))//!No sé porque no funciona esto de la imagen pero bueno actualizar es necesario
-      .setColor('RANDOM');//Cambia el color de la barrera que sale al lado del mensaje
+      .setThumbnail()
+      .setColor('RANDOM'); //Cambia el color de la barrera que sale al lado del mensaje
     const server = bot.guilds.cache.get(serverID);
     const channel = server.channels.cache.get(bienvenidasID);
     channel.send(embed);

@@ -7,5 +7,6 @@
     "steamLink":"Escriba aquí su link de steam",
     "uplayUser":"Escriba aquí su usuario de uplay",
     "spotifyLink":"Escriba aquí su link de spotify",
-    "riotUser":"Escriba aquí su usuario de riot"
+    "riotUser":"Escriba aquí su usuario de riot",
+    "prefix":"Escriba aquí su prefijo"
 }

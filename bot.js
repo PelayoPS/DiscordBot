@@ -16,8 +16,18 @@ const {
  * Avisa de cuando está encendido el bot a través de consola
  */
 bot.on("ready", () => {
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   console.log("I am ready!");// console.log manda a la terminal el mensaje pasado como parámetro
-  bot.user.setActivity("Twitch", { type: "STREAMING", url: "https://www.twitch.tv/pelayo_p_s" });
+  /**
+   * Muestra el estado en discord utilizando Type prefijo help para indicar como perdir ayuda a los usuarios
+   */
+  bot.user.setActivity("Type " + prefix + "help", {
+    type: "STREAMING",
+    url: "https://www.twitch.tv/pelayo_p_s"
+  });
 });
 
 /**
@@ -76,7 +86,6 @@ bot.on("message", message => {
     );
     return;
   } catch (e) {
-    message.channel.send("Pasó algo con el comando, " + `<@!${message.author.id}>` + " se encargará de ver si lo puede arreglar.");
     console.log(e.stack); //Guarda la excepción
   }
 

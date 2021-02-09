@@ -17,9 +17,6 @@ const {
  */
 bot.on("ready", () => {
 
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
   console.log("I am ready!");// console.log manda a la terminal el mensaje pasado como parámetro
   /**
    * Muestra el estado en discord utilizando Type prefijo help para indicar como perdir ayuda a los usuarios

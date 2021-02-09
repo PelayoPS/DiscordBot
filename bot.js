@@ -40,6 +40,7 @@ bot.on("guildMemberAdd", member => {
     const server = bot.guilds.cache.get(serverID);
     const channel = server.channels.cache.get(bienvenidasID);
     channel.send(embed);
+    console.log(embed);
   }
 });
 

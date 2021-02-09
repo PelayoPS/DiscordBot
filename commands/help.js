@@ -23,16 +23,19 @@ exports.run = async (client, message, args) => {
             descrption = "Saluda educadamente al usuario según la hora del día y si se pasan parámetros como días/noches/tardes/ responde con lo correspondiente.";
             break;
         case "social":
-            descrption = "se pueden pasar como parámetros las siguientes redes para conseguir el link de cada una de ellas: \n"+
-            "*instagram* \n"+
-            "*youtube* \n"+
-            "*twitch* \n"+
-            "*battlenet* \n"+
-            "*epic* \n"+
-            "*steam* \n"+
-            "*uplay* \n"+
-            "*spotify* \n"+
-            "*riot*";
+            descrption = "se pueden pasar como parámetros las siguientes redes para conseguir el link de cada una de ellas: \n" +
+                "*instagram* \n" +
+                "*youtube* \n" +
+                "*twitch* \n" +
+                "*battlenet* \n" +
+                "*epic* \n" +
+                "*steam* \n" +
+                "*uplay* \n" +
+                "*spotify* \n" +
+                "*riot*";
+            break;
+        case "kick" || "ban":
+            descrption = "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión";
             break;
         default:
             descrption = "**!avatar @user**: muestra la foto de perfil de un usuario.\n" +
@@ -41,7 +44,8 @@ exports.run = async (client, message, args) => {
                 "**!decir idCanal mensaje**: repite el mensaje en el canal especificado.\n" +
                 "**!help**: da información relevante de todos los comandos.\n" +
                 "**!poll pregunta**: hace una encuesta de sí o no para responder.\n" +
-                "**!social red**: muestra mi id en cada red social o el link a la cuenta.";
+                "**!social red**: muestra mi id en cada red social o el link a la cuenta.\n" +
+                "**!kick/ban @usuario Texto que corresponde a la razón de expulsión**: expulsa o banea a la persona especificada\n";
     }
 
 

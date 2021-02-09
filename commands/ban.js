@@ -10,15 +10,15 @@ exports.run = async (client, message, args) => {
 
     if (!user) return message.channel.send("No has mencionado a nadie");
     if (user.id === message.author.id){
-         return message.channel.send("No te puedes echar a tí mismo camarada");
+         return message.channel.send("No te puedes banear a tí mismo camarada");
     }
-    if (user.id === client.user.id) return message.channel.send("No me puedes expulsar jjeejejej");
+    if (user.id === client.user.id) return message.channel.send("No me puedes banear jajajaaj");
 
     if (!reason) reason = "No hay razón de espulsión";
 
-    member.kick(reason).then(() => {
-        message.channel.send(`Has conseguido expulsar a **${user.tag}**`);
+    member.ban(reason).then(() => {
+        message.channel.send(`Has conseguido banear a **${user.tag}**`);
     }).catch(err => {
-        message.reply(`No he podido expulsar a **${user.tag}**`);
+        message.reply(`No he podido baneat a **${user.tag}**`);
     })
 }

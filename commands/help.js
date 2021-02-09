@@ -40,7 +40,7 @@ exports.run = async (client, message, args) => {
                 "**!buenos días/noches/tardes/**: hace un saludo cordial al usuario por hora del día.\n" +
                 "**!decir idCanal mensaje**: repite el mensaje en el canal especificado.\n" +
                 "**!help**: da información relevante de todos los comandos.\n" +
-                "***!poll pregunta**: hace una encuesta de sí o no para responder.\n" +
+                "**!poll pregunta**: hace una encuesta de sí o no para responder.\n" +
                 "**!social red**: muestra mi id en cada red social o el link a la cuenta.";
     }
 

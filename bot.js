@@ -65,10 +65,6 @@ bot.on("message", message => {
    */
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
 
-  /**
-   * Shift nos devuelve el primer elemento de la array
-   */
-  const command = args.shift().toLowerCase();
 
   /**
    * Sirve para llamar a cada comando usando el nombre del archivo y pasando como parámetros los argumentos, el mensaje y el cliente

@@ -19,18 +19,13 @@ bot.on("ready", () => {
 
   console.log("I am ready!");// console.log manda a la terminal el mensaje pasado como parámetro
 
-  function randomStatus() {
-    let status = ["Follow pelayo_p_s on yt", "Follow pelayo_p_s on twitch","Follow pelayo_p_s on instagram", "Type " + prefix + "help"];
-    let randomStatus = Math.floor(Math.random * status.length);
-
     /**
      * Pone un estado al bot y le permite al usuario acceder al link de twitch especificado
      */
-    bot.user.setActivity(status[randomStatus],  {
+    bot.user.setActivity("Type " + prefix + "help",  {
       type: "STREAMING",
       url: "https://www.twitch.tv/pelayo_p_s"
     });
-  }; setInterval(randomStatus, 30000)
 });
 
 /**

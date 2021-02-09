@@ -34,7 +34,10 @@ exports.run = async (client, message, args) => {
                 "*spotify* \n" +
                 "*riot*";
             break;
-        case "kick" || "ban":
+        case "kick":
+            descrption = "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión";
+            break;
+        case "ban":
             descrption = "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión";
             break;
         default:

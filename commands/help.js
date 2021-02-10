@@ -16,6 +16,9 @@ exports.run = async (client, message, args) => {
         case "decir":
             descrption = "decir {idCanal}: manda un mensaje  al canal que se le mande.";
             break;
+        case "borrar":
+            descrption = "borrar {número de mensajes}: tiene un límite de 100 mensajes y además no puede borrar mensajes con antigüedad superior a 14 días.";
+            break;
         case "help":
             descrption = "proporciona ayuda general del los distintos comandos. ";
             break;

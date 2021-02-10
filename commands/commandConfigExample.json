@@ -1,12 +1,13 @@
 {
-    "instagramUser":"Escriba aquí su usuario de instagram",
-    "youtubeLink":"Escriba aquí su link de yt",
-    "twitchLink":"Escriba aquí su link de twitch",
-    "battlenetUser":"Escriba aquí su usuario de battlenet",
-    "epicUser":"Escriba aquí su usuario de epic",
-    "steamLink":"Escriba aquí su link de steam",
-    "uplayUser":"Escriba aquí su usuario de uplay",
+    "instagramUser":"Escriba aquí su perfil de instagram",
+    "youtubeLink":"Escriba aquí el link de su canal de youtube",
+    "twitchLink":"Escriba aquí su canal de twitch",
+    "battlenetUser":"Escriba aquí su usario de battlenet",
+    "epicUser":"Escriba aquí su usario de Epic games",
+    "steamLink":"Escriba aquí su usuario de ",
+    "uplayUser":"Pelayo_PS",
     "spotifyLink":"Escriba aquí su link de spotify",
     "riotUser":"Escriba aquí su usuario de riot",
-    "prefix":"Escriba aquí su prefijo"
+    "serverID":"Escriba aquí la id de su servidor",
+    "adminID":"Escriba aquí la id de su equipo de administración en discord"
 }

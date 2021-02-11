@@ -1,5 +1,12 @@
 const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
+    //!Cambiar formato a !poll options(emojis) | Text
+    /**
+     * pseudo code:
+     * for(iterating over args){
+     *  embed.react(arg[i]) until args[i] === |, then args.slice(i) to get the text
+     * } 
+     */
     /**
      * Hace un embed message que luego comenta para lo cual utiliza una promesa, con mensaje normal no dejaba porque reaccionaba al mío
      * se pueden poner imágenes y personalizar mucho más, pero eso lo tengo que mirar para el comando de youtube y el resto de redes

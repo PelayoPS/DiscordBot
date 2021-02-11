@@ -51,7 +51,8 @@ exports.run = async (client, message, args) => {
                 "**!help**: da información relevante de todos los comandos.\n" +
                 "**!poll pregunta**: hace una encuesta de sí o no para responder.\n" +
                 "**!social red**: muestra mi id en cada red social o el link a la cuenta.\n" +
-                "**!kick/ban @usuario Texto que corresponde a la razón de expulsión**: expulsa o banea a la persona especificada\n";
+                "**!kick/ban @usuario: Texto que corresponde a la razón de expulsión**: expulsa o banea a la persona especificada\n" +
+                "**!borrar {número de mensajes}: tiene un límite de 100 mensajes y además no puede borrar mensajes con antigüedad superior a 14 días.";
     }
 
 

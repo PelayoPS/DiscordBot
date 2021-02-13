@@ -7,10 +7,10 @@ exports.run = async (client, message, args) => {
     let pollChannel = message.channel;//Devuelve el canal en el cual fue enviado el mensaje.
 
     let emojis = [];
-    let i = 0;
+    let i = args.length;
     while (args[i] !== "|" || i === args.length) {
         emojis[i] = args[i];
-        i++;
+        i--;
     }
     let pollDescrption = args.slice(i+1).join(" ");//El formato es {formato texto sin especificar}
     let embedPoll = new Discord.MessageEmbed()//Crea un nuevo mensaje mucho más personalizable que los mensajes base

@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
     message.id = args[0];
     const reactions = message.reactions.cache;

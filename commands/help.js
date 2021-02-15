@@ -2,70 +2,99 @@ const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
 
     let descrption = "";
-    switch (args[0]) {
-        case "avatar":
-            descrption = "avatar {@user}: muestra la foto de perfil de un usuario. " +
-                "En caso de no tener argumento usa el del autor del mensaje y acepta ids y @usuario.";
-            break;
-        case "botServerInfo":
-            descrption = "comando privado para el desarrollador del bot que sólo hace cosas en consola así que si lo usas no verás el resultado. ";
-            break;
-        case "buenos":
-            descrption = "saluda educadamente al usuario según la hora del día y si se pasan parámetros como días/noches/tardes/ responde con lo correspondiente.";
-            break;
-        case "decir":
-            descrption = "decir {idCanal}: manda un mensaje  al canal que se le mande.";
-            break;
-        case "borrar":
-            descrption = "borrar {número de mensajes}: tiene un límite de 100 mensajes y además no puede borrar mensajes con antigüedad superior a 14 días.";
-            break;
-        case "help":
-            descrption = "proporciona ayuda general del los distintos comandos. ";
-            break;
-        case "poll":
-            descrption = "Saluda educadamente al usuario según la hora del día y si se pasan parámetros como días/noches/tardes/ responde con lo correspondiente.";
-            break;
-        case "social":
-            descrption = "se pueden pasar como parámetros las siguientes redes para conseguir el link de cada una de ellas: \n" +
-                "*instagram* \n" +
-                "*youtube* \n" +
-                "*twitch* \n" +
-                "*battlenet* \n" +
-                "*epic* \n" +
-                "*steam* \n" +
-                "*uplay* \n" +
-                "*spotify* \n" +
-                "*riot*";
-            break;
-        case "kick":
-            descrption = "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión";
-            break;
-        case "ban":
-            descrption = "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión";
-            break;
-        default:
-            descrption = "**!avatar @user**: muestra la foto de perfil de un usuario.\n" +
-                "**!botServersInfo**: imprime en consola la información relativa a los servidores donde esté el bot.\n" +
-                "**!buenos días/noches/tardes/**: hace un saludo cordial al usuario por hora del día.\n" +
-                "**!decir idCanal mensaje**: repite el mensaje en el canal especificado.\n" +
-                "**!help**: da información relevante de todos los comandos.\n" +
-                "**!poll pregunta**: hace una encuesta de sí o no para responder.\n" +
-                "**!social red**: muestra mi id en cada red social o el link a la cuenta.\n" +
-                "**!kick/ban @usuario: Texto que corresponde a la razón de expulsión**: expulsa o banea a la persona especificada\n" +
-                "**!borrar {número de mensajes}: tiene un límite de 100 mensajes y además no puede borrar mensajes con antigüedad superior a 14 días.";
-    }
-
 
     let title = "";
-    if (args[0] === undefined) {
-        title = "Comandos disponibles:";
-    } else {
-        title = "Comando " + args[0] + ":";
-    }
-
     let embedMessage = new Discord.MessageEmbed()//Crea un nuevo mensaje mucho más personalizable que los mensajes base
         .setTitle(title)//Asigna un título
         .setDescription(descrption)//muestra los comandos disponibles
-        .setColor('RANDOM');//Cambia el color de la barrera que sale al lado del mensaje
+        .setColor('RANDOM')//Cambia el color de la barrera que sale al lado del mensaje
+        .addFields(
+                {
+                    name: "Avatar: ",
+                    value: "avatar {@user}: muestra la foto de perfil de un usuario. " +
+                        "En caso de no tener argumento usa el del autor del mensaje y acepta ids y @usuario.",
+                },
+                {
+                    name: "Ban: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                },
+                {
+                    name: "Borrar: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                },
+                {
+                    name: "BotServerInfo: ",
+                    value: "avatar {@user}: muestra la foto de perfil de un usuario. " +
+                        "En caso de no tener argumento usa el del autor del mensaje y acepta ids y @usuario.",
+                },
+                {
+                    name: "Buenos: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                },
+                {
+                    name: "Decir: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                },
+                {
+                    name: "EndPoll: ",
+                    value: "!endPoll pollID: hace un recuento de",
+                },
+                {
+                    name: "Github: ",
+                    value: "Muestra el link del git hub donde se desarolla el bot.",
+                },
+                {
+                    name: "Help: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                },
+                
+                {
+                    name: "Invitar: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                },
+                {
+                    name: "Kick: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                },
+                
+                {
+                    name: "Ping: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                },
+                {
+                    name: "Poll: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                },
+                
+                {
+                    name: "RoleMembers: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                },
+                {
+                    name: "SetStatus: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                },
+                
+                {
+                    name: "Social: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                },
+                
+                {
+                    name: "UserInfo: ",
+                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                }
+
+            );
     message.channel.send(embedMessage);
+
+    client.on('messageReactionAdd', (reaction, user) => {
+        if(message.id === reaction.message.id){
+            message.channel.send("funciona");
+        } else {
+            message.channel.send("no funciona");
+            message.channel.send(message.id);
+            message.channel.send(reaction.message.id);
+        }
+    });
 }

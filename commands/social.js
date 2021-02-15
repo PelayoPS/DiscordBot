@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 /**
  * Llama a las constantes que están dentro del json
  */
@@ -20,7 +19,7 @@ exports.run = async (client, message, args) => {
      * !Añadir el nombre de usuario o link dentro del socialConfig.json!
      */
     if (args[0] === undefined) {
-        message.channel.send("No has puesto nada, por favor vuelve a intentarlo");//? Tal vez se podría incluir dentro del switch de alguna forma?
+        message.channel.send("No has puesto nada, por favor vuelve a intentarlo");
         return;
     } else {
     switch (args[0]) {

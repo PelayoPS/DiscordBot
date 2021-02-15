@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.hasPermission("ADMINISTRATOR")) {
         return message.channel.send("No tienes los permisos necesarios");

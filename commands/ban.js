@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
     if (!message.member.hasPermission("KICK_MEMBERS") || !message.member.hasPermission("ADMINISTRATOR")) {
         return message.channel.send("No tienes los permisos necesarios");
@@ -20,5 +19,6 @@ exports.run = async (client, message, args) => {
         message.channel.send(`Has conseguido banear a **${user.tag}**`);
     }).catch(err => {
         message.reply(`No he podido baneat a **${user.tag}**`);
+        console.log(err);
     })
 }

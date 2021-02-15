@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 const { inviteLink } = require('./commandConfig.json');
 exports.run = async (client, message, args) => {
     let inviteChannel = message.channel;//Devuelve el canal en el cual fue enviado el mensaje.

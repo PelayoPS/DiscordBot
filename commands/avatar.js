@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
   /**
    * Comando avatar que sirve para ver la foto de perfil de un usuario

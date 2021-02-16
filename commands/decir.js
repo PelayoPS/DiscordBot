@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
     /**
      * Comando decir que sirve para enviar un mensaje a un canal específico

@@ -12,7 +12,7 @@ const {
     spotifyLink,
     riotUser
 } = require('./commandConfig.json');
-
+const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
     /**
      * Responde con el nombre de mis redes sociales según el que le pidas como comando

@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
     var date = new Date();//Fecha con todos los datos día mes año...
     var hour = date.getHours();//devuelve las horas

@@ -15,29 +15,24 @@ exports.run = async (client, message, args) => {
                         "En caso de no tener argumento usa el del autor del mensaje y acepta ids y @usuario.",
                 },
                 {
-                    name: "Ban: ",
+                    name: "Ban and kick: ",
                     value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
                 },
                 {
                     name: "Borrar: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                    value: "!borrar númeroDeMensajes: elimina el número de mensajes con edad menor de 14 días",
                 },
                 {
                     name: "BotServerInfo: ",
-                    value: "avatar {@user}: muestra la foto de perfil de un usuario. " +
-                        "En caso de no tener argumento usa el del autor del mensaje y acepta ids y @usuario.",
+                    value: "!botServerInfo: es un comando de consola para el desarrollador y ya",
                 },
                 {
                     name: "Buenos: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                    value: "!buenos días/tardes/noches/empty: saluda educadamente al usuario según la hora del día.",
                 },
                 {
                     name: "Decir: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
-                },
-                {
-                    name: "EndPoll: ",
-                    value: "!endPoll pollID: hace un recuento de",
+                    value: "!decir channelID Texto a decir: manda el texto al canal especificado.",
                 },
                 {
                     name: "Github: ",
@@ -45,18 +40,12 @@ exports.run = async (client, message, args) => {
                 },
                 {
                     name: "Help: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                    value: "Mustra una pequeña ayuda de todos los comandos",
                 },
-                
                 {
                     name: "Invitar: ",
                     value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
-                },
-                {
-                    name: "Kick: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
-                },
-                
+                },                
                 {
                     name: "Ping: ",
                     value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
@@ -84,7 +73,6 @@ exports.run = async (client, message, args) => {
                     name: "UserInfo: ",
                     value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
                 }
-
             );
     message.channel.send(embedMessage);
 

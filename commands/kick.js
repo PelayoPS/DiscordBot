@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
     if (!message.member.hasPermission("KICK_MEMBERS") || !message.member.hasPermission("ADMINISTRATOR")) {
         return message.channel.send("No tienes los permisos necesarios");

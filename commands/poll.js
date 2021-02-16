@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
     /**
      * Hace un embed message que luego comenta para lo cual utiliza una promesa, con mensaje normal no dejaba porque reaccionaba al mío

@@ -10,5 +10,6 @@
     "riotUser":"Escriba aquí su usuario de riot",
     "serverID":"Escriba aquí la id de su servidor",
     "adminID":"Escriba aquí la id de su equipo de administración en discord",
+    "ownerID":"escriba aquí su id de desarrollador",
     "inviteLink":"Escriba aquí su link de invitación"
 }

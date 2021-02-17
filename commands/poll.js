@@ -7,11 +7,11 @@ exports.run = async (client, message, args) => {
     let pollChannel = message.channel;//Devuelve el canal en el cual fue enviado el mensaje.
     let emojis = [];
     let i = args.indexOf("|") - 1;//se necesita saber la posición para quitar el texto de los emojis
-    while(i >= 0){
+    while (i >= 0) {
         emojis[i] = args[i];
         i--;
     }
-    let pollDescrption = args.slice(args.indexOf("|")+1).join(" ");//El formato es {formato texto sin especificar}
+    let pollDescrption = args.slice(args.indexOf("|") + 1).join(" ");//El formato es {formato texto sin especificar}
     let embedPoll = new Discord.MessageEmbed()//Crea un nuevo mensaje mucho más personalizable que los mensajes base
         .setTitle("Encuesta:")//Asigna un título
         .setDescription(`<@!${message.author.id}>` + " pregunta: \n" + pollDescrption)//`<@!${message.author.id}>` sirve para hacer un @ a la persona que pone el mensaje
@@ -25,12 +25,9 @@ exports.run = async (client, message, args) => {
             try {
                 embedMessage.react(emojis[index]);
             } catch (error) {
-               message.channel.send("un emoji que has mandado no ha sido reconocido o hay un error en el formato") 
+                message.channel.send("un emoji que has mandado no ha sido reconocido o hay un error en el formato")
             }
-            
-
         }
-
         embedMessage.react(args[1]);
     })
 }

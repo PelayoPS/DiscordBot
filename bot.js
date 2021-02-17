@@ -19,13 +19,13 @@ bot.on("ready", () => {
 
   console.log("I am ready!");// console.log manda a la terminal el mensaje pasado como parámetro
 
-    /**
-     * Pone un estado al bot y le permite al usuario acceder al link de twitch especificado
-     */
-    bot.user.setActivity("Type " + prefix + "help",  {
-      type: "STREAMING",
-      url: "https://www.twitch.tv/pelayo_p_s"
-    });
+  /**
+   * Pone un estado al bot y le permite al usuario acceder al link de twitch especificado
+   */
+  bot.user.setActivity("Type " + prefix + "help", {
+    type: "STREAMING",
+    url: "https://www.twitch.tv/pelayo_p_s"
+  });
 });
 
 /**
@@ -72,10 +72,24 @@ bot.on("message", message => {
   const command = args.shift();
 
   /**
+   * lo pongo por separado para evitar tener que añadir el token en commandConfig.json
+   */
+  if (command === "reload") {
+    bot.destroy()//cierra el bot
+    bot.login(token);
+    message.channel.send("Reloaded");
+    return;
+  }
+  if (command === "act") {
+    message.channel.send("Actualizado");
+    return;
+  }
+  /**
    * Sirve para llamar a cada comando usando el nombre del archivo y pasando como parámetros los argumentos, el mensaje y el cliente
    */
-
+  
   try {
+    
     let comandos = require(`./commands/${command}.js`); //Buesca el comando en la carpeta
 
     comandos.run(bot, message, args); //Ejecuta el comando con los parámetros
@@ -85,8 +99,13 @@ bot.on("message", message => {
     );
     return;
   } catch (e) {
+    message.channel.send("Ha ocurrido un error con " + command);
+    message.channel.send(e.toString());
     console.log(e.stack); //Guarda la excepción
   }
+  
 
 });
+
+
 bot.login(token);

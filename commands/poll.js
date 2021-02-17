@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
+const {ownerID} = require('./commandConfig.json');
 exports.run = async (client, message, args) => {
+    let embed;
     /**
      * Hace un embed message que luego comenta para lo cual utiliza una promesa, con mensaje normal no dejaba porque reaccionaba al mío
      * se pueden poner imágenes y personalizar mucho más, pero eso lo tengo que mirar para el comando de youtube y el resto de redes
@@ -28,6 +30,28 @@ exports.run = async (client, message, args) => {
                 message.channel.send("un emoji que has mandado no ha sido reconocido o hay un error en el formato")
             }
         }
-        embedMessage.react(args[1]);
+        embed = embedMessage;
     })
+
+    let closed = false;
+    client.on('messageReactionAdd', (messageReaction, user) => {
+        if(!closed){
+        if (client.user.id !== user.id && user.id !== ownerID) {
+            console.log("Busca esto en el canal: " + pollDescrption);
+            for (let index = 0; index < emojis.length; index++) {
+                console.log(embed.reactions.cache.get(emojis[index]).count + " " + emojis[index]);
+            }
+        }
+        if(user.id === ownerID){
+            message.channel.send(`The poll wit content "${pollDescrption}" has been closed`);
+            for (let index = 0; index < emojis.length; index++) {
+                message.channel.send(embed.reactions.cache.get(emojis[index]).count + " " + emojis[index]);
+            }
+            message.reactions.removeAll().catch(error => console.error('Failed to clear reactions: ', error));
+            closed = true;
+        }
+    }
+        
+
+    });
 }

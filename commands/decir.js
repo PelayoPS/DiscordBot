@@ -1,4 +1,10 @@
 const Discord = require('discord.js');
+/**
+ * Dice una información con el formato decir channelId texto
+ * @param {*} client no se usa para nada
+ * @param {*} message se usa para saber el canal
+ * @param {*} args se usa para saber el texto y el channel id
+ */
 exports.run = async (client, message, args) => {
     /**
      * Comando decir que sirve para enviar un mensaje a un canal específico

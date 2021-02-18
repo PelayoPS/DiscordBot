@@ -1,4 +1,10 @@
 const Discord = require('discord.js');
+/**
+ * Esta función se usa para expulsar del servidor a gente que haya inclumpido las normas
+ * @param {*} client no se usa para nada
+ * @param {*} message se usa para sacar los permisos del miembro y el canal
+ * @param {*} args se usa para saber la razón de expulsión
+ */
 exports.run = async (client, message, args) => {
     if (!message.member.hasPermission("KICK_MEMBERS") || !message.member.hasPermission("ADMINISTRATOR")) {
         return message.channel.send("No tienes los permisos necesarios");

@@ -13,6 +13,12 @@ const {
     riotUser
 } = require('./commandConfig.json');
 const Discord = require('discord.js');
+/**
+ * Muestra las distintas redes sociales
+ * @param {*} client no se usa para nada
+ * @param {*} message se usa para sacar el canal
+ * @param {*} args se usa para saber la red social
+ */
 exports.run = async (client, message, args) => {
     /**
      * Responde con el nombre de mis redes sociales según el que le pidas como comando

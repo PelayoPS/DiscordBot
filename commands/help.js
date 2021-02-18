@@ -1,4 +1,10 @@
 const Discord = require('discord.js');
+/**
+ * Muestra ayuda de cada comando
+ * @param {*} client no se usa para nada
+ * @param {*} message se usa para sacar el canal
+ * @param {*} args no se usa para nada
+ */
 exports.run = async (client, message, args) => {
 
     let descrption = "";
@@ -76,13 +82,4 @@ exports.run = async (client, message, args) => {
             );
     message.channel.send(embedMessage);
 
-    client.on('messageReactionAdd', (reaction, user) => {
-        if(message.id === reaction.message.id){
-            message.channel.send("funciona");
-        } else {
-            message.channel.send("no funciona");
-            message.channel.send(message.id);
-            message.channel.send(reaction.message.id);
-        }
-    });
 }

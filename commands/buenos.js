@@ -1,4 +1,10 @@
 const Discord = require('discord.js');
+/**
+ * Función que saluda educadamente al usuario según la hora del día
+ * @param {*} client no se usa para nada
+ * @param {*} message se usa para sacar el canal y el autor
+ * @param {*} args son los argumentos del comando
+ */
 exports.run = async (client, message, args) => {
     var date = new Date();//Fecha con todos los datos día mes año...
     var hour = date.getHours();//devuelve las horas

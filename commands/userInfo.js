@@ -1,4 +1,10 @@
 const Discord = require('discord.js');
+/**
+ * Muestra información detallada del usuario especificado
+ * @param {*} client no se usa para nada
+ * @param {*} message se usa para sacar las meciones y el canal
+ * @param {*} args se usa para sacar el usuario
+ */
 exports.run = async (client, message, args) => {
     let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;//Busca si una persona fue mencionada, en caso contrario usa el autor del mensaje
     let status;

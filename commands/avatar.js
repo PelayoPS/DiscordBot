@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 /**
- * 
+ * Muestra la foto de perfil de un usuario
  * @param {*} client no se usa para nada en este comando
  * @param {*} message sirver para sacar el usuario y el canal
  * @param {*} args tampoco se usa para nada

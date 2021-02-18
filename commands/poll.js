@@ -1,5 +1,12 @@
 const Discord = require('discord.js');
 const {ownerID} = require('./commandConfig.json');
+/**
+ * Esta función manda una encuesta con el formato poll emojis[] | pollDescription
+ * para cerrrar las encuestas el owner del bot deberá reaccionar la al misma
+ * @param {*} client 
+ * @param {*} message 
+ * @param {*} args 
+ */
 exports.run = async (client, message, args) => {
     let embed;
     /**

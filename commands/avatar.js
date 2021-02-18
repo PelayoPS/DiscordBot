@@ -1,4 +1,10 @@
 const Discord = require('discord.js');
+/**
+ * 
+ * @param {*} client no se usa para nada en este comando
+ * @param {*} message sirver para sacar el usuario y el canal
+ * @param {*} args tampoco se usa para nada
+ */
 exports.run = async (client, message, args) => {
   /**
    * Comando avatar que sirve para ver la foto de perfil de un usuario

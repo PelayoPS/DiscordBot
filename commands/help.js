@@ -18,67 +18,83 @@ exports.run = async (client, message, args) => {
                 {
                     name: "Avatar: ",
                     value: "avatar {@user}: muestra la foto de perfil de un usuario. " +
-                        "En caso de no tener argumento usa el del autor del mensaje y acepta ids y @usuario.",
+                        "\n En caso de no tener argumento usa el del autor del mensaje y acepta ids y @usuario.",
+                    inline:true
                 },
                 {
                     name: "Ban and kick: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                    value: "kick/ban @usuario 'Texto que corresponde a la razón de expulsión' hacen lo que dicen sus nombres.",
+                    inline:true
                 },
                 {
                     name: "Borrar: ",
-                    value: "!borrar númeroDeMensajes: elimina el número de mensajes con edad menor de 14 días",
+                    value: "borrar númeroDeMensajes: elimina el número de mensajes con edad menor de 14 días.",
+                    inline:true
                 },
                 {
                     name: "BotServerInfo: ",
-                    value: "!botServerInfo: es un comando de consola para el desarrollador y ya",
+                    value: "botServerInfo: es un comando de consola para el desarrollador y ya",
+                    inline:true
                 },
                 {
                     name: "Buenos: ",
-                    value: "!buenos días/tardes/noches/empty: saluda educadamente al usuario según la hora del día.",
+                    value: "buenos días/tardes/noches/empty: saluda educadamente al usuario según la hora del día.",
+                    inline:true
                 },
                 {
                     name: "Decir: ",
-                    value: "!decir channelID Texto a decir: manda el texto al canal especificado.",
+                    value: "decir channelID Texto a decir: manda el texto al canal especificado.",
+                    inline:true
                 },
                 {
                     name: "Github: ",
-                    value: "Muestra el link del git hub donde se desarolla el bot.",
+                    value: "github: envía el link de git hub donde se desarrolla el bot.",
+                    inline:true
                 },
                 {
                     name: "Help: ",
-                    value: "Mustra una pequeña ayuda de todos los comandos",
+                    value: "help: muestra una pequeña ayuda de todos los comandos.",
+                    inline:true
                 },
                 {
                     name: "Invitar: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                    value: "invitar: envía el link de invitación al servidor.",
+                    inline:true
                 },                
                 {
                     name: "Ping: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                    value: "ping: evalua la latencia del servidor y de la api.",
+                    inline:true
                 },
                 {
                     name: "Poll: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                    value: "poll emojis | text: crea una encuesta que puede ser cerrada por el creador del bot.",
+                    inline:true
                 },
                 
                 {
                     name: "RoleMembers: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                    value: "rolemembers @role: muestra el número de usuarios con un rol.",
+                    inline:true
                 },
                 {
                     name: "SetStatus: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                    value: "setStatus status: comando que sirve para que el propietario del bot ponga un estado al bot.",
+                    inline:true
                 },
                 
                 {
                     name: "Social: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
+                    value: "social redSocial: muestra el usuario o link de la red social especificada.",
+                    inline:true
                 },
                 
                 {
                     name: "UserInfo: ",
-                    value: "Kick y ban hacen lo que dice su nombre con el formato kick/ban @usuario Texto que corresponde a la razón de expulsión",
-                }
+                    value: "uiserInfo @user: muestra la información relativa al usuario mencionado.",
+                    inline:true
+                },
+                
             );
     message.channel.send(embedMessage);
 

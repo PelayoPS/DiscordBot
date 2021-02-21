@@ -77,6 +77,16 @@ bot.on("message", message => {
   if (command === "reload") {
     bot.destroy()//cierra el bot
     bot.login(token);
+    console.log(message.author.tag + " Usó el comando: "
+    + message.content, "en: " + message.guild.name); //Informa por consola lo que ocurre a modo de log
+    /**
+     * Pone un estado al bot y le permite al usuario acceder al link de twitch especificado
+     */
+    bot.user.setActivity("Type " + prefix + "help", {
+      type: "STREAMING",
+      url: "https://www.twitch.tv/pelayo_p_s"
+    });
+
     message.channel.send("Reloaded");
     return;
   }
@@ -87,9 +97,9 @@ bot.on("message", message => {
   /**
    * Sirve para llamar a cada comando usando el nombre del archivo y pasando como parámetros los argumentos, el mensaje y el cliente
    */
-  
+
   try {
-    
+
     let comandos = require(`./commands/${command}.js`); //Buesca el comando en la carpeta
 
     comandos.run(bot, message, args); //Ejecuta el comando con los parámetros
@@ -103,7 +113,7 @@ bot.on("message", message => {
     message.channel.send(e.toString());
     console.log(e.stack); //Guarda la excepción
   }
-  
+
 
 });
 

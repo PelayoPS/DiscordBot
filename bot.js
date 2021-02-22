@@ -10,7 +10,7 @@ const {
   token,
   serverID,
   bienvenidasID
-} = require('./config.json');
+} = require('./commands/commandConfig.json');
 
 /**
  * Avisa de cuando está encendido el bot a través de consola

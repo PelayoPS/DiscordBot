@@ -111,7 +111,7 @@ bot.on("message", message => {
 });
 
 function printCommand(message) {
-
+  
   msg = message.author.tag + " Usó el comando: "
     + message.content, "en: " + message.guild.name; //Informa por consola lo que ocurre a modo de log
   try {
@@ -123,6 +123,9 @@ function printCommand(message) {
 }
 
 function logMessage(message) {
+  if (message.author.bot){
+    return;
+  }
   msg = message.author.tag + " Envió: "
     + message.content, "en: " + message.guild.name; //Informa por consola lo que ocurre a modo de log
   try {

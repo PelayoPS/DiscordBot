@@ -9,7 +9,9 @@ const {
   prefix,
   token,
   serverID,
-  bienvenidasID
+  bienvenidasID,
+  consoleChannel,
+  logMSGChannel
 } = require('./commands/commandConfig.json');
 
 /**
@@ -46,6 +48,10 @@ bot.on("guildMemberAdd", member => {
 });
 
 bot.on("message", message => {
+  if (message.channel.id !== consoleChannel && message.channel.id !== logMSGChannel) {
+    logMessage(message);
+  }
+
 
   /**
    * Si ningún mensaje empieza con prefijo para de hacer cosas o si es el mensaje de un bot
@@ -76,14 +82,13 @@ bot.on("message", message => {
    */
   if (command === "reload") {
     bot.destroy()//cierra el bot
-   
+
     bot.login(token);
-    console.log(message.author.tag + " Usó el comando: "
-    + message.content, "en: " + message.guild.name); //Informa por consola lo que ocurre a modo de log
+    console.log(printCommand(message));
     message.channel.send("Reloaded");
     return;
   }
-  
+
   /**
    * Sirve para llamar a cada comando usando el nombre del archivo y pasando como parámetros los argumentos, el mensaje y el cliente
    */
@@ -94,9 +99,7 @@ bot.on("message", message => {
 
     comandos.run(bot, message, args); //Ejecuta el comando con los parámetros
 
-    console.log(message.author.tag + " Usó el comando: "
-      + message.content, "en: " + message.guild.name //Informa por consola lo que ocurre a modo de log
-    );
+    console.log(printCommand(message));
     return;
   } catch (e) {
     message.channel.send("Ha ocurrido un error con " + command);
@@ -106,6 +109,29 @@ bot.on("message", message => {
 
 
 });
+
+function printCommand(message) {
+
+  msg = message.author.tag + " Usó el comando: "
+    + message.content, "en: " + message.guild.name; //Informa por consola lo que ocurre a modo de log
+  try {
+    message.guild.channels.cache.get(consoleChannel).send(msg);
+  } catch (error) {
+    console.log(error);
+  }
+  return msg;
+}
+
+function logMessage(message) {
+  msg = message.author.tag + " Envió: "
+    + message.content, "en: " + message.guild.name; //Informa por consola lo que ocurre a modo de log
+  try {
+    message.guild.channels.cache.get(logMSGChannel).send(msg);
+  } catch (error) {
+    console.log(error);
+  }
+  return msg;
+}
 
 
 bot.login(token);

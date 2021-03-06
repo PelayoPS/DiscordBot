@@ -13,5 +13,7 @@
     "ownerID":"escriba aquí su id de desarrollador",
     "inviteLink":"Escriba aquí su link de invitación",
     "prefix":"!",
-    "token": "Escriba aquí so token"
+    "token": "Escriba aquí so token",
+    "consoleChannel" : "Escriba aquí su canal de consola",
+    "logMSGChannel" : "Escriba aquí su canal de log para mensajes"
 }

@@ -57,6 +57,6 @@ exports.run = async (client, message, args) => {
             message.channel.send(riotUser);
             break;        
         default:
-            message.channel.send("Has puesto una red social incorrecta" + args[0] );
+            message.channel.send("Has puesto una red social incorrecta " + args[0] );
     }}
 }

@@ -48,8 +48,10 @@ bot.on("guildMemberAdd", member => {
 });
 
 bot.on("message", message => {
-  if (message.channel.id !== consoleChannel && message.channel.id !== logMSGChannel) {
-    logMessage(message);
+  messageLogged = false;
+  if (message.channel.id !== consoleChannel && message.channel.id !== logMSGChannel && !message.content.startsWith(prefix)) {
+    logMessage(message,logMSGChannel,message.author.bot);
+    messageLogged = true;
   }
 
 
@@ -84,7 +86,9 @@ bot.on("message", message => {
     bot.destroy()//cierra el bot
 
     bot.login(token);
-    console.log(printCommand(message));
+    if(!messageLogged){
+    console.log(logMessage(message,consoleChannel,false));
+    }
     message.channel.send("Reloaded");
     return;
   }
@@ -98,38 +102,30 @@ bot.on("message", message => {
     let comandos = require(`./commands/${command}.js`); //Buesca el comando en la carpeta
 
     comandos.run(bot, message, args); //Ejecuta el comando con los parámetros
-
-    console.log(printCommand(message));
+    if(!messageLogged){
+      console.log(logMessage(message,consoleChannel,false));
+    }
+    
     return;
   } catch (e) {
     message.channel.send("Ha ocurrido un error con " + command);
     message.channel.send(e.toString());
-    console.log(e.stack); //Guarda la excepción
+    console.log(logMessage(e.stack,logMSGChannel,true)); //Guarda la excepción
+
   }
 
 
 });
 
-function printCommand(message) {
-  
-  msg = message.author.tag + " Usó el comando: "
-    + message.content, "en: " + message.guild.name; //Informa por consola lo que ocurre a modo de log
-  try {
-    message.guild.channels.cache.get(consoleChannel).send(msg);
-  } catch (error) {
-    console.log(error);
-  }
-  return msg;
-}
 
-function logMessage(message) {
-  if (message.author.bot){
+function logMessage(message, channel, cond) {
+  if (cond){
     return;
   }
   msg = message.author.tag + " Envió: "
     + message.content, "en: " + message.guild.name; //Informa por consola lo que ocurre a modo de log
   try {
-    message.guild.channels.cache.get(logMSGChannel).send(msg);
+    message.guild.channels.cache.get(channel).send(msg);
   } catch (error) {
     console.log(error);
   }

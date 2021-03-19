@@ -22,6 +22,9 @@ exports.run = async (client, message, args) => {
     if (user.id === client.user.id) return message.channel.send("No me puedes banear jajajaaj");
 
     if (!reason) reason = "No hay razón de espulsión";
+    
+    member.send("Has sido baneado", {files: ["./fotos/ban.jpeg"]});//sends a good meme to the ban person
+
 
     member.ban(reason).then(() => {
         message.channel.send(`Has conseguido banear a **${user.tag}**`);

@@ -11,6 +11,7 @@ exports.run = async (client, message, args) => {
      */
     
     let channelId = args[0];
+   
     if(message.guild.channels.cache.get(channelId) === undefined){
         return message.channel.send("El canal al que intentas mandar algo no existe.");
     }

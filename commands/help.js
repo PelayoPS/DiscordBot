@@ -91,7 +91,14 @@ exports.run = async (client, message, args) => {
                 
                 {
                     name: "UserInfo: ",
-                    value: "uiserInfo @user: muestra la información relativa al usuario mencionado.",
+                    value: "userInfo @user: muestra la información relativa al usuario mencionado.",
+                    inline:true
+                },
+
+                {
+                    name: "Ban: ",
+                    value: "ban @user razón de expulsión: expulsa a un usuario del servidor dando una razón y además le manda un mensaje privado "+
+                            "con una foto cómica.",
                     inline:true
                 },
                 

@@ -7,7 +7,7 @@ const Discord = require('discord.js');
  * @param {*} args sirve para sacar la razón del baneo 
  */
 exports.run = async (client, message, args) => {
-    if (!message.member.hasPermission("BAN_MEMBERS") || !message.member.hasPermission("ADMINISTRATOR")) {
+    if (!message.member.hasPermission("KICK_MEMBERS") || !message.member.hasPermission("ADMINISTRATOR")) {
         return message.channel.send("No tienes los permisos necesarios");
     }
     let user = message.mentions.users.first() || client.users.cache.get(args[0]);// guarda el usuario mencionado

@@ -11,7 +11,8 @@ const {
   serverID,
   bienvenidasID,
   consoleChannel,
-  logMSGChannel
+  logMSGChannel,
+  dmLog
 } = require('./commands/commandConfig.json');
 
 /**
@@ -50,16 +51,18 @@ bot.on("guildMemberAdd", member => {
 bot.on("message", message => {
   messageLogged = false;
   if (message.channel.id !== consoleChannel && message.channel.id !== logMSGChannel && !message.content.startsWith(prefix)) {
-    logMessage(message,logMSGChannel,message.author.bot);
+    if (message.channel.type === "dm") {
+      logDM(message, dmLog, message.author.bot);
+    } else {
+    logMessage(message, logMSGChannel, message.author.bot);
     messageLogged = true;
+    }
   }
-
 
   /**
    * Si ningún mensaje empieza con prefijo para de hacer cosas o si es el mensaje de un bot
    */
   if (!message.content.startsWith(prefix) || message.author.bot || message.channel.type === "dm") return;
-
 
   /**
    * Asegura que el mensaje sea un comando
@@ -86,8 +89,8 @@ bot.on("message", message => {
     bot.destroy()//cierra el bot
 
     bot.login(token);
-    if(!messageLogged){
-    console.log(logMessage(message,consoleChannel,false));
+    if (!messageLogged) {
+      console.log(logMessage(message, consoleChannel, false));
     }
     message.channel.send("Reloaded");
     return;
@@ -102,15 +105,15 @@ bot.on("message", message => {
     let comandos = require(`./commands/${command}.js`); //Buesca el comando en la carpeta
 
     comandos.run(bot, message, args); //Ejecuta el comando con los parámetros
-    if(!messageLogged){
-      console.log(logMessage(message,consoleChannel,false));
+    if (!messageLogged) {
+      console.log(logMessage(message, consoleChannel, false));
     }
-    
+
     return;
   } catch (e) {
     message.channel.send("Ha ocurrido un error con " + command);
     message.channel.send(e.toString());
-    console.log(logMessage(e.stack,logMSGChannel,true)); //Guarda la excepción
+    console.log(logMessage(e.stack, logMSGChannel, true)); //Guarda la excepción
 
   }
 
@@ -119,7 +122,7 @@ bot.on("message", message => {
 
 
 function logMessage(message, channel, cond) {
-  if (cond){
+  if (cond) {
     return;
   }
   msg = message.author.tag + " Envió: "
@@ -130,6 +133,21 @@ function logMessage(message, channel, cond) {
     console.log(error);
   }
   return msg;
+}
+
+function logDM(message, channel, cond) {
+  if (cond) {
+    return;
+  }
+  let embed = new Discord.MessageEmbed()
+    .setDescription(`<@!${message.author.id}> ha dicho: \n` + message.content)
+    .setColor('RANDOM');
+  try {
+    bot.guilds.cache.get(serverID).channels.cache.get(channel).send(embed);
+  } catch (error) {
+    console.log(error);
+  }
+  return embed;
 }
 
 

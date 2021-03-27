@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+//!Este no funciona, y no sé porque
 /**
  * Da el número de usuarios de un rol
  * @param {*} client no se usa para nada

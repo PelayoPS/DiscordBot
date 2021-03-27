@@ -19,6 +19,4 @@ exports.run = async (client, message, args) => {
     } catch (e) {
         message.channel.send(e.toString());
     }
-
-
 }

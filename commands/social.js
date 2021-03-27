@@ -26,6 +26,7 @@ exports.run = async (client, message, args) => {
      */
     if (args[0] === undefined) {
         message.channel.send("No has puesto nada, por favor vuelve a intentarlo");
+        message.channel.send("Redes disponibles: instagram,youtube,twitch,battlenet,epic,steam,uplay,spotify,riot");
         return;
     } else {
     switch (args[0]) {
@@ -58,5 +59,6 @@ exports.run = async (client, message, args) => {
             break;        
         default:
             message.channel.send("Has puesto una red social incorrecta " + args[0] );
+            message.channel.send("Redes disponibles: instagram,youtube,twitch,battlenet,epic,steam,uplay,spotify,riot");
     }}
 }

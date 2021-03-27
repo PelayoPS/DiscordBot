@@ -112,8 +112,8 @@ exports.run = async (client, message, args) => {
             },
 
         );
-    if (!message.member.hasPermission("KICK_MEMBERS") || !message.member.hasPermission("ADMINISTRATOR") || !message.member.hasPermission("BAN_MEMBERS")) {
-        //message.author.send(embedMessage);
+    if (!message.member.hasPermission("KICK_MEMBERS") || !message.member.hasPermission("BAN_MEMBERS")) {
+        message.author.send(embedMessage);
     } else {//!Manda ambos mensajes para que los mods no tengan que leer juntos los disntintos poderes que tienen, pendiente de mejora tal vez mediante web
         message.author.send(embedMessage);
         message.author.send(modEmbed);

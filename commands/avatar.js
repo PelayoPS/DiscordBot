@@ -13,6 +13,6 @@ exports.run = async (client, message, args) => {
   let embed = new Discord.MessageEmbed();//Constructor para el mensaje con formato
   embed.setColor("RANDOM")//Hace que la barra de color cambie cada vez que se pone
     .setDescription("Avatar del usuario: " + `<@!${user.id}>`)//Menciona al usuario del que se muestra el avatar
-    .setImage(user.avatarURL({ format: 'png', dynamic: true, size: 1024 }));//!Recordar que este formato tiene que ser así o sino sale en webp!
+    .setImage(user.avatarURL({ format: 'png', dynamic: true, size: 1024 }));//asigna un formato a la foto de perfil
   message.channel.send(embed);//Envía el mensaje    
 }

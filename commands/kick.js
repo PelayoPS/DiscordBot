@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
 
     if (!reason) reason = "No hay razón de espulsión";
 
-    member.send("Algo has liado, piensa en lo que has hecho y nos volvemos a ver");//sends a good meme to the ban person
+    member.send("Algo has liado, piensa en lo que has hecho y nos volvemos a ver");
 
     member.kick().then((member) => {
         message.channel.send(member.displayName + " ha sido expulsado por " +  '<@'+message.author.id+'>');

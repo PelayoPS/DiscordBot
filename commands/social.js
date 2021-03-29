@@ -22,7 +22,6 @@ const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
     /**
      * Responde con el nombre de mis redes sociales según el que le pidas como comando
-     * !Añadir el nombre de usuario o link dentro del socialConfig.json!
      */
     if (args[0] === undefined) {
         message.channel.send("No has puesto nada, por favor vuelve a intentarlo");

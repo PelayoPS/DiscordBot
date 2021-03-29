@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { prefix } = require('./commandConfig.json');
+const { prefix, twitchLink } = require('./commandConfig.json');
 /**
  * pone una actividad al bot
  * @param {*} client no se usa para nada
@@ -9,6 +9,6 @@ const { prefix } = require('./commandConfig.json');
 exports.run = async (client, message, args) => {
     client.user.setActivity("Type " + prefix + "help", {
         type: "STREAMING",
-        url: "https://www.twitch.tv/pelayo_p_s"
+        url: "twitchLink"
       });
 }

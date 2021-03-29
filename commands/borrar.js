@@ -7,10 +7,13 @@ const Discord = require('discord.js');
  */
 exports.run = async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.hasPermission("ADMINISTRATOR")) {
-        return message.channel.send("No tienes los permisos necesarios");
+        return message.channel.send("No tienes los permisos necesarios");//revisa que la persona pueda eliminar mensajes
+    }
+    if(args[0] < 1) {
+        return message.channel.send("Hecho, no había nada que borrar");
     }
     if (isNaN(args[0])) {
-        return message.channel.send("No has introducido un número válido");
+        return message.channel.send("No has introducido un número válido");//si no es un número válido avisa
     }
     const limit = args[0] + 1;
     await message.delete()

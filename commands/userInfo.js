@@ -29,7 +29,7 @@ exports.run = async (client, message, args) => {
             user.user.avatarURL({ dynamic: true })//Hace que el autor del embed tenga de foto de perfil la del usuario
         )
         .setColor("RANDOM")
-        .setThumbnail(user.user.displayAvatarURL({ dynamic: true }))
+        .setThumbnail(user.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }))
         .addFields(
             {
                 name: "Apodo: ",
@@ -46,7 +46,7 @@ exports.run = async (client, message, args) => {
             },
             {
                 name: "Link del avatar: ",
-                value: `[<<Link>>](${user.user.displayAvatarURL()})`
+                value: `[<<Link>>](${user.user.avatarURL({ format: 'png', dynamic: true, size: 1024 })})`
             },
             {
                 name: "Status: ",

@@ -32,7 +32,7 @@ exports.run = async (client, message, args) => {
          */
         for (let index = 0; index < emojis.length; index++) {
             try {
-                embedMessage.react(emojis[index]);
+                embedMessage.react(emojis[index]);//reacciona al mensaje con el emoji correspondiente
             } catch (error) {
                 message.channel.send("un emoji que has mandado no ha sido reconocido o hay un error en el formato")
             }
@@ -41,6 +41,10 @@ exports.run = async (client, message, args) => {
     })
 
     let closed = false;
+    /**
+     * cierra la encuesta si el propietario del servidor reacciona
+     * también hace un recuento de los votos por opción
+     */
     client.on('messageReactionAdd', (messageReaction, user) => {
         if(!closed){
         if (client.user.id !== user.id && user.id !== ownerID) {

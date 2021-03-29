@@ -115,7 +115,7 @@ bot.on("message", message => {
   } catch (e) {
     message.channel.send("Ha ocurrido un error con " + command);
     message.channel.send(e.toString());
-    console.log(logMessage(e.stack, logMSGChannel, true)); //Guarda la excepción
+    console.log(logError(message, e.toString(), consoleChannel, false)); //Guarda la excepción
 
   }
 
@@ -129,7 +129,26 @@ bot.on("message", message => {
  * @param {*} cond 
  * @returns 
  */
-function logMessage(message, channel, cond) {
+ function logError(message,error, channel, cond) {
+  if (cond) {
+    return;
+  }
+  try {
+    message.guild.channels.cache.get(channel).send(error);//manda el mensaje por el canal de log de consola
+  } catch (e) {
+    console.log(e);//loggea en consola el error, si se usase el comando node bot.js >> log.txt para lanzarlo se guardarían todos los errores
+  }
+  return error;
+}
+
+/**
+ * Hace un log de los mensajes mandados por cualquier canal
+ * @param {*} message 
+ * @param {*} channel 
+ * @param {*} cond 
+ * @returns 
+ */
+ function logMessage(message, channel, cond) {
   if (cond) {
     return;
   }
@@ -137,9 +156,9 @@ function logMessage(message, channel, cond) {
   msg = message.author.tag + " Envió: "
     + message.content, "en: " + message.guild.name; //Informa por consola lo que ocurre a modo de log
   try {
-    message.guild.channels.cache.get(channel).send(msg);
+    message.guild.channels.cache.get(channel).send(msg);//manda el mensaje por el canal de log normal
   } catch (error) {
-    console.log(error);
+    console.log(error);//loggea en consola el error, si se usase el comando node bot.js >> log.txt para lanzarlo se guardarían todos los errores
   }
   return msg;
 }
@@ -159,9 +178,9 @@ function logDM(message, channel, cond) {
     .setDescription(`<@!${message.author.id}> ha dicho: \n` + message.content)
     .setColor('RANDOM');
   try {
-    bot.guilds.cache.get(serverID).channels.cache.get(channel).send(embed);
+    bot.guilds.cache.get(serverID).channels.cache.get(channel).send(embed);//manda el mensaje al canal de log de dm
   } catch (error) {
-    console.log(error);
+    console.log(error);//loggea el error en consola, si el host del bot utiliza el comando node bot.js >> console.log tendría todo en un archivo
   }
   return embed;
 }
@@ -172,24 +191,27 @@ function logDM(message, channel, cond) {
  * @returns 
  */
 function getIdFromMention(message) {
+  if(message.content == undefined) {
+    return;
+  }
   const args = message.content.trim().split(/ +/g);
   if (!args) return;
   for (let index = 0; index < args.length; index++) {
-    if (args[index].startsWith('<@') && args[index].endsWith('>')) {
+    if (args[index].startsWith('<@') && args[index].endsWith('>')) {//el formato de una mención es <@id>
       args[index] = args[index].slice(3, -1);
-      if(message.mentions.members.first() != undefined) {
+      if (message.mentions.members.first() != undefined) {//si no es una mención a usuario continua
         args[index] = message.mentions.members.first().user.username;
       }
-      if(message.guild.roles.cache.get(args[index]) != undefined){
+      if (message.guild.roles.cache.get(args[index]) != undefined) {//su no es una mención a rol después de no ser a usuario no hace nada
         args[index] = message.guild.roles.cache.get(args[index]).name
       }
     }
   }
-  message.content = args.join();
+  message.content = args.join(" ");
 
-    
+
 }
-  
+
 
 
 bot.login(token);

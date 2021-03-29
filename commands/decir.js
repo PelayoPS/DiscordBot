@@ -12,12 +12,11 @@ exports.run = async (client, message, args) => {
     
     let channelId = args[0];
    
-    if(message.guild.channels.cache.get(channelId) === undefined){
+    if(message.guild.channels.cache.get(channelId) === undefined){//si no encuentra el canal avisa de que no existe
         return message.channel.send("El canal al que intentas mandar algo no existe.");
-        console.log(message.author + " ha intententado mandar un mensaje a un canal que no existe")
     }
     message.channel.id = channelId;
-    let text = args.slice(1).join(" ");
+    let text = args.slice(1).join(" ");//une de nuevo los argumentos para no ponerlo con comas
     message.channel.send(text);
 
 }

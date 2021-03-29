@@ -9,7 +9,7 @@ const serverID = require('./commandConfig.json');
  */
 exports.run = async (client, message, args) => {
     arg = message.guild.roles.cache.get(message.content.slice(1).trim().split(/ +/g)[1]);
-    let role = getUserFromMention(args) || arg;//Busca si una persona fue mencionada, en caso contrario usa el autor del mensaje 
+    let role = getIdFromMention(args) || arg;//Busca si una persona fue mencionada, en caso contrario usa el autor del mensaje 
 
     const roleID = role;
     const myRole = message.guild.roles.cache.get(roleID);
@@ -26,16 +26,12 @@ exports.run = async (client, message, args) => {
      * @param {*} mention 
      * @returns 
      */
-    function getUserFromMention(mention) {
+    function getIdFromMention(mention) {
         mention = mention.toString();
         if (!mention) return;
     
         if (mention.startsWith('<@') && mention.endsWith('>')) {
             mention = mention.slice(3, -1);
-    
-            if (mention.startsWith('!')) {
-                mention = mention.slice(1);
-            }
     
             return mention;
         }

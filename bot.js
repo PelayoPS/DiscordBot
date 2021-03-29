@@ -12,7 +12,8 @@ const {
   bienvenidasID,
   consoleChannel,
   logMSGChannel,
-  dmLog
+  dmLog,
+  twitchLink
 } = require('./commands/commandConfig.json');
 
 /**
@@ -27,7 +28,7 @@ bot.on("ready", () => {
    */
   bot.user.setActivity("Type " + prefix + "help", {
     type: "STREAMING",
-    url: "https://www.twitch.tv/pelayo_p_s"
+    url: twitchLink
   });
 });
 
@@ -48,14 +49,17 @@ bot.on("guildMemberAdd", member => {
   }
 });
 
+/**
+ * Ejecuta lo que tenga dentro cada vez que se lanza un mensaje
+ */
 bot.on("message", message => {
   messageLogged = false;
   if (message.channel.id !== consoleChannel && message.channel.id !== logMSGChannel && !message.content.startsWith(prefix)) {
     if (message.channel.type === "dm") {
       logDM(message, dmLog, message.author.bot);
     } else {
-    logMessage(message, logMSGChannel, message.author.bot);
-    messageLogged = true;
+      logMessage(message, logMSGChannel, message.author.bot);
+      messageLogged = true;
     }
   }
 
@@ -99,11 +103,9 @@ bot.on("message", message => {
   /**
    * Sirve para llamar a cada comando usando el nombre del archivo y pasando como parámetros los argumentos, el mensaje y el cliente
    */
-
   try {
 
     let comandos = require(`./commands/${command}.js`); //Buesca el comando en la carpeta
-
     comandos.run(bot, message, args); //Ejecuta el comando con los parámetros
     if (!messageLogged) {
       console.log(logMessage(message, consoleChannel, false));
@@ -120,11 +122,18 @@ bot.on("message", message => {
 
 });
 
-
+/**
+ * Hace un log de los mensajes mandados por cualquier canal
+ * @param {*} message 
+ * @param {*} channel 
+ * @param {*} cond 
+ * @returns 
+ */
 function logMessage(message, channel, cond) {
   if (cond) {
     return;
   }
+  getIdFromMention(message);
   msg = message.author.tag + " Envió: "
     + message.content, "en: " + message.guild.name; //Informa por consola lo que ocurre a modo de log
   try {
@@ -135,6 +144,13 @@ function logMessage(message, channel, cond) {
   return msg;
 }
 
+/**
+ * Manda un log de los mensajes mediante el dm
+ * @param {*} message 
+ * @param {*} channel 
+ * @param {*} cond 
+ * @returns 
+ */
 function logDM(message, channel, cond) {
   if (cond) {
     return;
@@ -149,6 +165,31 @@ function logDM(message, channel, cond) {
   }
   return embed;
 }
+
+/**
+ * Saca la id de una mención porque me resulta más cómodo tratar todo con ids
+ * @param {*} mention 
+ * @returns 
+ */
+function getIdFromMention(message) {
+  const args = message.content.trim().split(/ +/g);
+  if (!args) return;
+  for (let index = 0; index < args.length; index++) {
+    if (args[index].startsWith('<@') && args[index].endsWith('>')) {
+      args[index] = args[index].slice(3, -1);
+      if(message.mentions.members.first() != undefined) {
+        args[index] = message.mentions.members.first().user.username;
+      }
+      if(message.guild.roles.cache.get(args[index]) != undefined){
+        args[index] = message.guild.roles.cache.get(args[index]).name
+      }
+    }
+  }
+  message.content = args.join();
+
+    
+}
+  
 
 
 bot.login(token);

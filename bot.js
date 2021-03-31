@@ -19,23 +19,24 @@ const {
 /**
  * Avisa de cuando está encendido el bot a través de consola
  */
-bot.on("ready", () => {
 
-    console.log("I am ready!");// console.log manda a la terminal el mensaje pasado como parámetro
-
-    /**
-     * Pone un estado al bot y le permite al usuario acceder al link de twitch especificado
-     */
-    bot.user.setActivity("Type " + prefix + "help", {
-        type: "STREAMING",
-        url: twitchLink
-    });
-});
+bot.on("ready", onReady);
 
 /**
  * Sirve para avisar cuando se una un miembro nuevo
  */
-bot.on("guildMemberAdd", member => {
+bot.on("guildMemberAdd", onMemberAdd);
+
+/**
+ * Ejecuta lo que tenga dentro cada vez que se lanza un mensaje
+ */
+bot.on("message", onMessage);
+
+
+
+//*Aquí empiezan las distintas funciones encargadas de actuar en bot.on
+
+function onMemberAdd(member) {
     if (member.guild.id === serverID) {
         let embed = new Discord.MessageEmbed()//Crea un nuevo mensaje mucho más personalizable que los mensajes base
             .setTitle("Bienvenido:")//Asigna un título
@@ -47,12 +48,9 @@ bot.on("guildMemberAdd", member => {
         channel.send(embed);
         console.log(embed);
     }
-});
+}
 
-/**
- * Ejecuta lo que tenga dentro cada vez que se lanza un mensaje
- */
-bot.on("message", message => {
+function onMessage(message) {
     messageLogged = false;
     if (message.channel.id !== consoleChannel && message.channel.id !== logMSGChannel && !message.content.startsWith(prefix)) {
         if (message.channel.type === "dm") {
@@ -105,7 +103,7 @@ bot.on("message", message => {
      */
     try {
 
-        let comandos = require(`./commands/${command}.js`); //Buesca el comando en la carpeta
+        let comandos = require(`./commands/${command}.js`); //Busca el comando en la carpeta
         comandos.run(bot, message, args); //Ejecuta el comando con los parámetros
         if (!messageLogged) {
             console.log(logMessage(message, consoleChannel, false));
@@ -118,10 +116,22 @@ bot.on("message", message => {
         console.log(logError(message, e.toString(), consoleChannel, false)); //Guarda la excepción
 
     }
+}
 
+function onReady() {
+    console.log("I am ready!");// console.log manda a la terminal el mensaje pasado como parámetro
 
-});
+    /**
+     * Pone un estado al bot y le permite al usuario acceder al link de twitch especificado
+     */
+    bot.user.setActivity("Type " + prefix + "help", {
+        type: "STREAMING",
+        url: twitchLink
+    });
+}
+//*Aquí acaban las distintas funciones encargadas de actuar en bot.on
 
+//*Funciones de log
 /**
  * Hace un log de los mensajes mandados por cualquier canal
  * @param {*} message 

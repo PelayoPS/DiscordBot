@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
 
     member.ban().then((member) => {//una vez completada la expulsión informa de quién lo hizo y a quien
         message.channel.send(member.displayName + " has left the server")
-        message.channel.send(member.displayName + " has been successfully banned by " +  '<@'+message.author.id+'>');
+        message.channel.send(member.displayName + " has been successfully banned by " + '<@' + message.author.id + '>');
     })
 
 }

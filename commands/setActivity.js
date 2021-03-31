@@ -10,5 +10,5 @@ exports.run = async (client, message, args) => {
     client.user.setActivity("Type " + prefix + "help", {
         type: "STREAMING",
         url: "twitchLink"
-      });
+    });
 }

@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.hasPermission("ADMINISTRATOR")) {
         return message.channel.send("No tienes los permisos necesarios");//revisa que la persona pueda eliminar mensajes
     }
-    if(args[0] < 1) {
+    if (args[0] < 1) {
         return message.channel.send("Hecho, no había nada que borrar");
     }
     if (isNaN(args[0])) {
@@ -21,3 +21,5 @@ exports.run = async (client, message, args) => {
         .then(messages => message.channel.send(`${messages.size}/${args[0]} mensajes borrados.`)).then(d => d.delete({ timeout: 10000 }))
         .catch(() => message.channel.send("Algo pasó y no los pude borrar"))
 }
+
+

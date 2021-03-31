@@ -9,10 +9,10 @@ exports.run = async (client, message, args) => {
     /**
      * Comando decir que sirve para enviar un mensaje a un canal específico
      */
-    
+
     let channelId = args[0];
-   
-    if(message.guild.channels.cache.get(channelId) === undefined){//si no encuentra el canal avisa de que no existe
+
+    if (message.guild.channels.cache.get(channelId) === undefined) {//si no encuentra el canal avisa de que no existe
         return message.channel.send("El canal al que intentas mandar algo no existe.");
     }
     message.channel.id = channelId;

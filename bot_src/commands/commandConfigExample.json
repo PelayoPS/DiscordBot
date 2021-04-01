@@ -16,5 +16,7 @@
     "token": "Escriba aquí so token",
     "consoleChannel" : "Escriba aquí su canal de consola",
     "logMSGChannel" : "Escriba aquí su canal de log para mensajes",
-    "dmLog": "Escriba aquí su id del log de dm"
+    "dmLog": "Escriba aquí su id del log de dm",
+    "bienvenidasID": "Escriba aquí su id del canal de bienvenidas"
+    
 }

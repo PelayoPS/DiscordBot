@@ -6,14 +6,14 @@ const bot = new Discord.Client({ ws: { intents: new Discord.Intents(Discord.Inte
  */
 const {
     token,
-} = require('./bot_src/commands/commandConfig.json');
+} = require('./bot_src/commandConfig.json');
 
 /**
  * Avisa de cuando está encendido el bot a través de consola
  */
 
 bot.on("ready", function () {
-    let onReady = require(`./bot_src/commands/handlers/onReady.js`);
+    let onReady = require(`./bot_src/handlers/onReady.js`);
     onReady.run(bot);
 });
 
@@ -21,7 +21,7 @@ bot.on("ready", function () {
  * Sirve para avisar cuando se una un miembro nuevo
  */
 bot.on("guildMemberAdd", member => {
-    let onMemberAdd = require(`./bot_src/commands/handlers/onMemberAdd.js`);
+    let onMemberAdd = require(`./bot_src/handlers/onMemberAdd.js`);
     onMemberAdd.run(member, bot);
 });
 
@@ -29,7 +29,7 @@ bot.on("guildMemberAdd", member => {
  * Ejecuta lo que tenga dentro cada vez que se lanza un mensaje
  */
 bot.on("message", message => {
-    let onMessage = require(`./bot_src/commands/handlers/onMessage.js`);
+    let onMessage = require(`./bot_src/handlers/onMessage.js`);
     onMessage.run(bot, message);
 });
 

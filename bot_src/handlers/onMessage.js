@@ -17,7 +17,7 @@ exports.run = function onMessage(bot, message) {
     messageLogged = false;
     if (message.channel.id !== consoleChannel && message.channel.id !== logMSGChannel && !message.content.startsWith(prefix)) {
         if (message.channel.type === "dm") {
-            logDM(message, dmLog, message.author.bot);
+            logDM(message, dmLog, message.author.bot, bot);
         } else {
             logMessage(message, logMSGChannel, message.author.bot);
             messageLogged = true;
@@ -157,7 +157,10 @@ function logMessage(message, channel, cond) {
  * @param {*} cond 
  * @returns 
  */
-function logDM(message, channel, cond) {
+ const {
+    serverID
+} = require('../commandConfig.json');
+function logDM(message, channel, cond, bot) {
     if (cond) {
         return;
     }

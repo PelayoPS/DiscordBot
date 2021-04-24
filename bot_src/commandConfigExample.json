@@ -17,6 +17,8 @@
     "consoleChannel" : "Escriba aquí su canal de consola",
     "logMSGChannel" : "Escriba aquí su canal de log para mensajes",
     "dmLog": "Escriba aquí su id del log de dm",
-    "bienvenidasID": "Escriba aquí su id del canal de bienvenidas"
+    "bienvenidasID": "Escriba aquí su id del canal de bienvenidas",
+    "rulesMSG":"Escriba aquí su id del mensaje con las normas",
+    "rulesChannel":"Escriba aquí su canal de mensajes"
     
 }

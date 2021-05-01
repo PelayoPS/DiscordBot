@@ -1,7 +1,10 @@
 const Discord = require('discord.js');
 
 const {
-    serverID
+    serverID,
+    bienvenidasID,
+    botRole,
+    generalRole
 } = require('../commandConfig.json');
 
 /**
@@ -20,5 +23,10 @@ exports.run = function onMemberAdd(member, bot) {
         const channel = server.channels.cache.get(bienvenidasID);
         channel.send(embed);
         console.log(embed);
+        if(member.bot){
+            bot.users.cache.get(member.id).roles.add(botRole);
+        } else {
+            bot.users.cache.get(member.id).roles.add(generalRole);
+        }
     }
 }

@@ -160,7 +160,7 @@ function logMessage(message, channel, cond) {
  */
  const {
     serverID
-} = require('../commandConfig.json');
+} = process.env;
 function logDM(message, channel, cond, bot) {
     if (cond) {
         return;

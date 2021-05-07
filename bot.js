@@ -16,7 +16,7 @@ const {
 bot.on("ready", async () => {
     handler("onReady").run(bot);
     //const commmands = await bot.api.aplications(bot.user.id).guilds(serverID).commands.get();
-    console.log(commmands);
+    //console.log(commmands);
 });
 
 /**

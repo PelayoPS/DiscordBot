@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
-const { inviteLink } = require('./commandConfig.json');
+require("dotenv").config();
+const { inviteLink } = process.env;
 /**
  * Manda la invitación del discord
  * @param {*} client no se usa para nada

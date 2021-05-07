@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+require("dotenv").config();
 /**
  * Llama a las constantes que están dentro del json
  */
@@ -11,8 +13,8 @@ const {
     uplayUser,
     spotifyLink,
     riotUser
-} = require('./commandConfig.json');
-const Discord = require('discord.js');
+} = process.env;
+
 /**
  * Muestra las distintas redes sociales
  * @param {*} client no se usa para nada

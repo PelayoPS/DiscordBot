@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
-const {ownerID} = require('./commandConfig.json');
+require("dotenv").config();
+const { ownerID } = process.env;
 /**
  * Esta función manda una encuesta con el formato poll emojis[] | pollDescription
  * para cerrrar las encuestas el owner del bot deberá reaccionar la al misma

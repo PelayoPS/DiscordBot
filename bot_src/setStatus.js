@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
-const { ownerID } = require('./commandConfig.json');
+require("dotenv").config();
+const { ownerID } = process.env;
 /**
  * Le pone un status al bot
  * @param {*} client se usa para poner el estado

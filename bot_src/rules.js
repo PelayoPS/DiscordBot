@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
-const { rulesMSG, rulesChannel } = require('./commandConfig.json');
+require("dotenv").config();
+const { rulesMSG, rulesChannel } = process.env;
 /**
  * Muestra las normas con un embed bonito para dejarlo claro
  * @param {*} client 

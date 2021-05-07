@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
-const { ownerID } = require('./commandConfig.json');
+require('dotenv').config();
+const { ownerID } = process.env;
 /**
  * esta función sólo actúa en consola y permite ver la información relativa a los servers donde está el bot
  * @param {*} client se usa para buscar los distintos servers en los que se encuentra el bot

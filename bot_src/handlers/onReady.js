@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
-
+require('dotenv').config();
 const {
     serverID,
     prefix,
     twitchLink
-} = require('../commandConfig.json');
+} = process.env;
 
 /**
  * Controla todos los eventos relacionados con el lanzamiento del bot

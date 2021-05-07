@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
-
+require('dotenv').config();
 const {
     prefix,
     consoleChannel,
     logMSGChannel,
     dmLog
-} = require('../commandConfig.json');
+} = process.env;
+
 
 /**
  * Controla todos los eventos relacionados con un mensaje

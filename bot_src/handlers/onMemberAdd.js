@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
-
+require('dotenv').config();
 const {
     serverID,
     bienvenidasID,
     botRole,
     generalRole
-} = require('../commandConfig.json');
+} = process.env;
 
 /**
  * Controla todos los eventos relacionados con la entrada de una persona al servidor
@@ -23,10 +23,11 @@ exports.run = function onMemberAdd(member, bot) {
         const channel = server.channels.cache.get(bienvenidasID);
         channel.send(embed);
         console.log(embed);
-        if(member.bot){
-            bot.users.cache.get(member.id).roles.add(botRole);
-        } else {
-            bot.users.cache.get(member.id).roles.add(generalRole);
-        }
+        //!arreglar esta parte
+        //if(member.bot){
+        //    bot.users.cache.get(member.id).roles.add(botRole);
+        //} else {
+        //    bot.users.cache.get(member.id).roles.add(generalRole);
+        //}
     }
 }

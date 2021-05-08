@@ -56,6 +56,11 @@ exports.run = async (message) => {
                 value: "userInfo @user: muestra la información relativa al usuario mencionado.",
                 inline: true
             },
+            {
+                name: "Spotify: ",
+                value: "spotify @user: muestra la información relativa al usuario mencionado.",
+                inline: true
+            }
         );
     message.author.send(embedMessage);
 }

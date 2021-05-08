@@ -153,12 +153,12 @@ function logMessage(message, channel, cond) {
 
 /**
  * Manda un log de los mensajes mediante el dm
- * @param {*} message 
+ * @param {*} message
  * @param {*} channel 
  * @param {*} cond 
  * @returns 
  */
- const {
+const {
     serverID
 } = process.env;
 function logDM(message, channel, cond, bot) {

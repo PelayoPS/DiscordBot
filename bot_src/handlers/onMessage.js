@@ -53,7 +53,7 @@ exports.run = function onMessage(bot, message) {
      */
     if (command === "reload") {
         bot.destroy()//cierra el bot
-
+            //!Meter por separado ahora que el commandConfig ya tiene el token
         bot.login(token);
         if (!messageLogged) {
             console.log(logMessage(message, consoleChannel, false));
@@ -66,7 +66,9 @@ exports.run = function onMessage(bot, message) {
      * Sirve para llamar a cada comando usando el nombre del archivo y pasando como parámetros los argumentos, el mensaje y el cliente
      */
     try {
-
+        let mod_commands = []
+        let general_commands = [];
+        //!run different pkg if mod or not
         let comandos = require(`../${command}.js`); //Busca el comando en la carpeta
         comandos.run(bot, message, args); //Ejecuta el comando con los parámetros
         if (!messageLogged) {

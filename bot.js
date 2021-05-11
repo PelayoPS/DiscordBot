@@ -5,9 +5,10 @@ require('dotenv').config();
  * Llama a las constantes que están dentro del json
  */
 const {
-    token,
-    serverID
+    token
 } = process.env;
+
+
 
 /**
  * Avisa de cuando está encendido el bot a través de consola

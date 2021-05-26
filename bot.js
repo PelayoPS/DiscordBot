@@ -1,9 +1,7 @@
 const Discord = require("discord.js");// Se usa para conseguir la api de discord
 const bot = new Discord.Client({ intents: new Discord.Intents(Discord.Intents.ALL) } );// Sirve para acceder al bote de discord
 require('dotenv').config();
-/**
- * Llama a las constantes que están dentro del json
- */
+
 const {
     token,
     serverID

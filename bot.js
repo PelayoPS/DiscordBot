@@ -3,9 +3,10 @@ const bot = new Discord.Client({ intents: new Discord.Intents(Discord.Intents.AL
 require('dotenv').config();
 
 const {
-    token,
-    serverID
+    token
 } = process.env;
+
+
 
 /**
  * Avisa de cuando está encendido el bot a través de consola

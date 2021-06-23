@@ -4,7 +4,8 @@ const {
     prefix,
     consoleChannel,
     logMSGChannel,
-    dmLog
+    dmLog,
+    token
 } = process.env;
 
 

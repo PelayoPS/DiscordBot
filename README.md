@@ -1,6 +1,6 @@
 # DiscordBot
 Este será mi primer bot de discord que iré actualizando poco a poco en mis tiempos libres y usando javascript
-(Due to an update of discord.js i ended the development of this bot and i will create a new one using java instead of javascrip)
+(Due to an update of discord.js i ended the development of this bot and i will create a new one using java instead of javascript)
 
 ## Information
 
